@@ -33,7 +33,6 @@
         </encoder>
     </appender>
 
-
     <root level="info">
         <appender-ref ref="FILE-INFO-OUT"/>
         <appender-ref ref="FILE-ERROR-OUT"/>

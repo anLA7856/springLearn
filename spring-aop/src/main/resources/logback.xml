@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <logger name="org.springframework.web" level="INFO"/>
+
+    <property name="logPath" value="/data/weblog/ocean"/>
+    <property name="log.moduleName" value="spring-aop-test" />
+    <property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss} [%thread][%X{traceId}] %-5level %logger - %msg%n"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <appender name="FILE-INFO-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/${log.moduleName}/${log.moduleName}-info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-info.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-ERROR-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/${log.moduleName}/${log.moduleName}-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-error.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- 本地环境 -->
+    <springProfile name="local,local2test">
+        <logger name="org.springframework.web" level="INFO"/>
+        <logger name="com.anla.springaop" level="DEBUG"/>
+    </springProfile>
+
+    <!-- 开发、测试环境 -->
+    <springProfile name="dev,test">
+        <logger name="org.springframework.web" level="INFO"/>
+        <logger name="com.anla.springaop" level="DEBUG"/>
+        <logger name="com.alibaba.nacos.client.naming" level="ERROR"/>
+    </springProfile>
+
+    <!-- 预发布 -->
+    <springProfile name="pre">
+        <logger name="org.springframework.web" level="INFO"/>
+        <logger name="com.anla.springaop" level="DEBUG"/>
+        <logger name="com.alibaba.nacos.client.naming" level="ERROR"/>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <logger name="org.springframework.web" level="INFO"/>
+        <logger name="com.anla.springaop" level="INFO"/>
+        <logger name="com.alibaba.nacos.client.naming" level="ERROR"/>
+    </springProfile>
+
+    <root level="info">
+        <appender-ref ref="FILE-INFO-OUT"/>
+        <appender-ref ref="FILE-ERROR-OUT"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

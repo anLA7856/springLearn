@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @description
  */
 @Configuration
-public class ApplicationListenerConfiguration implements ApplicationListener {
+public class DemoApplicationListenerConfiguration implements ApplicationListener {
 
     /**
      * 所有事件都打印出

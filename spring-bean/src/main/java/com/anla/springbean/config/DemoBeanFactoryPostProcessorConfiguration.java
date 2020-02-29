@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @description
  */
 @Configuration
-public class BeanFactoryPostProcessorConfiguration implements BeanFactoryPostProcessor {
+public class DemoBeanFactoryPostProcessorConfiguration implements BeanFactoryPostProcessor {
     /**
      * 注意顺序
      * https://www.jianshu.com/p/3d099ea43b0e

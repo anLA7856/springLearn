@@ -32,12 +32,13 @@ public class MainApplication {
         applicationContext.register(TestComponentScan.class,
                 DogBeanPostProcessor.class,
                 CommonConfiguration.class,
-                ApplicationListenerConfiguration.class,
-                BeanFactoryPostProcessorConfiguration.class,
-                BeanDefinitionRegistryPostProcessorConfiguration.class);
+                DemoApplicationListenerConfiguration.class,
+                DemoBeanFactoryPostProcessorConfiguration.class,
+                DemoBeanDefinitionRegistryPostProcessorConfiguration.class,
+                DemoInstantiationAwareBeanPostProcessor.class);
         // 这样方式，就可以将 BeanFactoryPostProcessor 放到  PostProcessorRegistrationDelegate 中执行
-        applicationContext.addBeanFactoryPostProcessor(new BeanFactoryPostProcessorConfiguration());
-        applicationContext.addBeanFactoryPostProcessor(new BeanDefinitionRegistryPostProcessorConfiguration());
+        applicationContext.addBeanFactoryPostProcessor(new DemoBeanFactoryPostProcessorConfiguration());
+        applicationContext.addBeanFactoryPostProcessor(new DemoBeanDefinitionRegistryPostProcessorConfiguration());
 
         startContext();
 

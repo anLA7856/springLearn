@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020/1/13 16:15
  **/
 @Configuration
-public class BeanDefinitionRegistryPostProcessorConfiguration implements BeanDefinitionRegistryPostProcessor {
+public class DemoBeanDefinitionRegistryPostProcessorConfiguration implements BeanDefinitionRegistryPostProcessor {
 
     /**
      * BeanDefinitionRegistryPostProcessor 所需方法

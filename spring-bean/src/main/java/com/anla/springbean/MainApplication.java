@@ -9,7 +9,10 @@ import com.anla.springbean.model.Tomdog;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
+/** MergedBeanDefinition https://blog.csdn.net/luoyang_java/article/details/85709475
+ * InstantiaationAwareBeanPostProcessor https://blog.csdn.net/u010634066/article/details/80321854
+ * SmartInstantiationAwareBeanPostProcessor 循环引用 https://blog.csdn.net/u010634066/article/details/80348253
+ * synthetic 例子 https://www.cnblogs.com/bethunebtj/p/7761596.html
  * @author luoan
  * @version 1.0
  * @date 2020/2/24 11:50

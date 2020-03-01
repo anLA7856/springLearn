@@ -1,5 +1,7 @@
 package com.anla.springbean.componet.sub;
 
+import com.anla.springbean.componet.sub1.Bug;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +12,12 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class Bird {
+
+    /**
+     * 测试注入
+     */
+    @Autowired
+    private Bug bug;
 
     public void hello(){
         System.out.println("hello I am a dog");

@@ -3,14 +3,12 @@ package com.anla.springbean.config;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author anLA7856
  * @date 20-1-12 下午11:02
  * @description
  */
-@Configuration
 public class DemoBeanFactoryPostProcessorConfiguration implements BeanFactoryPostProcessor {
     /**
      * 注意顺序

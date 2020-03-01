@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @date 20-1-12 下午10:29
  * @description
  */
-@Configuration
 public class DogBeanPostProcessor implements BeanPostProcessor {
 
     @Override

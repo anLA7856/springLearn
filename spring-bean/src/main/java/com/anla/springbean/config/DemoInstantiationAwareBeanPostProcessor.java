@@ -3,7 +3,6 @@ package com.anla.springbean.config;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
-import org.springframework.context.annotation.Configuration;
 
 import java.beans.PropertyDescriptor;
 
@@ -12,7 +11,6 @@ import java.beans.PropertyDescriptor;
  * @version 1.0
  * @date 2020/2/29 12:34
  **/
-@Configuration
 public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
     @Override

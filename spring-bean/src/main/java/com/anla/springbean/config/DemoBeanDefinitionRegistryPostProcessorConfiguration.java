@@ -4,14 +4,12 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author luoan
  * @version 1.0
  * @date 2020/1/13 16:15
  **/
-@Configuration
 public class DemoBeanDefinitionRegistryPostProcessorConfiguration implements BeanDefinitionRegistryPostProcessor {
 
     /**

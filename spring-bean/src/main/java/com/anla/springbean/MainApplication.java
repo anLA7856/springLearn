@@ -38,7 +38,8 @@ public class MainApplication {
                 DemoApplicationListenerConfiguration.class,
                 DemoBeanFactoryPostProcessorConfiguration.class,
                 DemoBeanDefinitionRegistryPostProcessorConfiguration.class,
-                DemoInstantiationAwareBeanPostProcessor.class);
+                DemoInstantiationAwareBeanPostProcessor.class,
+                DemoDateFormatFactoryBean.class);
         // 这样方式，就可以将 BeanFactoryPostProcessor 放到  PostProcessorRegistrationDelegate 中执行
         applicationContext.addBeanFactoryPostProcessor(new DemoBeanFactoryPostProcessorConfiguration());
         applicationContext.addBeanFactoryPostProcessor(new DemoBeanDefinitionRegistryPostProcessorConfiguration());

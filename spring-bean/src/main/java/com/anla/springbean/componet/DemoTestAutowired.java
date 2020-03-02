@@ -1,5 +1,6 @@
 package com.anla.springbean.componet;
 
+import com.anla.springbean.componet.lookup.DemoTrueLookUpConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,5 +17,6 @@ public class DemoTestAutowired {
     @Autowired
     private DateFormat dateFormat;
 
-
+    @Autowired
+    private DemoTrueLookUpConfiguration demoTrueLookUpConfiguration;
 }

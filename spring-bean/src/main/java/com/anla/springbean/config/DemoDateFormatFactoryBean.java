@@ -15,7 +15,7 @@ import java.util.TimeZone;
  */
 public class DemoDateFormatFactoryBean implements FactoryBean<DateFormat>, InitializingBean {
 
-    private DateFormat dateFormat;
+    private DateFormat dateFormat = new SimpleDateFormat();
 
     @Override
     public DateFormat getObject() throws Exception {

@@ -1,5 +1,6 @@
 package com.anla.springbean;
 
+import com.anla.springbean.componet.DemoTestAutowired;
 import com.anla.springbean.componet.TestComponentScan;
 import com.anla.springbean.componet.sub.Bird;
 import com.anla.springbean.componet.sub1.Bug;
@@ -57,6 +58,9 @@ public class MainApplication {
 
         Bug bug = applicationContext.getBean("bug", Bug.class);
         bug.hello();
+
+        DemoTestAutowired demoTestAutowired = applicationContext.getBean("demoTestAutowired", DemoTestAutowired.class);
+        demoTestAutowired.sayLookUP();
 
     }
 

@@ -20,10 +20,17 @@ public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwa
     }
 
 
+    /**
+     * 这个return false，在popular bean 时候
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         System.out.println("beanName:"+beanName+"执行  postProcessProperties");
-        return false;
+        return true;
     }
 
     @Override

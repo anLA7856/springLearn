@@ -61,6 +61,9 @@ public class MainApplication {
 
         DemoTestAutowired demoTestAutowired = applicationContext.getBean("demoTestAutowired", DemoTestAutowired.class);
         demoTestAutowired.sayLookUP();
+        // 测试 @Primary 和 @Qualifier
+        demoTestAutowired.basePeopleBoySay();
+        demoTestAutowired.basePeopleGirlSay();
 
     }
 

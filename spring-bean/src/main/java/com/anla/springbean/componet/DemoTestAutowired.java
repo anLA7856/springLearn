@@ -1,8 +1,10 @@
 package com.anla.springbean.componet;
 
 import com.anla.springbean.componet.lookup.DemoTrueLookUpConfiguration;
+import com.anla.springbean.componet.primary.BasePeople;
 import com.anla.springbean.componet.sub.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
@@ -34,5 +36,20 @@ public class DemoTestAutowired {
 
     public void sayLookUP(){
         demoTrueLookUpConfiguration.print();
+    }
+
+    @Autowired
+    private BasePeople basePeople;
+
+    @Qualifier("girl")
+    @Autowired
+    private BasePeople basePeopleGir;
+
+    public void basePeopleBoySay(){
+        basePeople.say();
+    }
+
+    public void basePeopleGirlSay(){
+        basePeopleGir.say();
     }
 }

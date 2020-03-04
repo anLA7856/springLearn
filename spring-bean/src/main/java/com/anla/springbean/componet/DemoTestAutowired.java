@@ -34,7 +34,13 @@ public class DemoTestAutowired {
         DemoTestAutowired.bird = bird;
     }
 
+    /**
+     * LookUp 相关解析在 LookupOverrideMethodInterceptor 中。
+     *
+     */
     public void sayLookUP(){
+        demoTrueLookUpConfiguration.print();
+        System.out.println("It's another one?");
         demoTrueLookUpConfiguration.print();
     }
 

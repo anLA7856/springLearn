@@ -33,7 +33,8 @@ public class MainApplication {
         applicationContext.registerBeanDefinition("tomdog", definition);
 
 
-        applicationContext.register(TestComponentScan.class,
+        applicationContext.register(DemoDestructionAwareBeanPostProcessor.class,
+                TestComponentScan.class,
                 DogBeanPostProcessor.class,
                 CommonConfiguration.class,
                 DemoApplicationListenerConfiguration.class,
@@ -65,6 +66,8 @@ public class MainApplication {
         demoTestAutowired.basePeopleBoySay();
         demoTestAutowired.basePeopleGirlSay();
 
+        // shutdown application context
+        applicationContext.close();
     }
 
 

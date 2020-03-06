@@ -9,6 +9,8 @@ import java.time.ZoneId;
 import java.util.TimeZone;
 
 /**
+ *
+ * 从 DefaultListableBeanFactory 的 getBeanNamesForType 方法为debug点进行分析
  * @author anLA7856
  * @date 20-3-1 下午6:14
  * @description

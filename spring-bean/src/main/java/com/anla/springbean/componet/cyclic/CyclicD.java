@@ -19,6 +19,6 @@ public class CyclicD {
     /**
      * 没有这个默认构造方法则会报错，因为造成了循环依赖。
      */
-//    public CyclicD() {
-//    }
+    public CyclicD() {
+    }
 }

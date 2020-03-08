@@ -2,6 +2,7 @@ package com.anla.springbean;
 
 import com.anla.springbean.componet.DemoTestAutowired;
 import com.anla.springbean.componet.TestComponentScan;
+import com.anla.springbean.componet.postcontstruct.DemoPostConstruct;
 import com.anla.springbean.componet.sub.Bird;
 import com.anla.springbean.componet.sub1.Bug;
 import com.anla.springbean.config.*;
@@ -66,8 +67,13 @@ public class MainApplication {
         demoTestAutowired.basePeopleBoySay();
         demoTestAutowired.basePeopleGirlSay();
 
+        DemoPostConstruct demoPostConstruct = applicationContext.getBean("demoPostConstruct", DemoPostConstruct.class);
+        demoPostConstruct.testResource();
+
         // shutdown application context
         applicationContext.close();
+
+
     }
 
 

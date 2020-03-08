@@ -1,6 +1,5 @@
 package com.anla.springbean.componet.cyclic;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,14 +11,14 @@ import org.springframework.stereotype.Component;
 public class CyclicD {
 
     private CyclicC cyclicC;
-
-    public CyclicD(@Autowired CyclicC cyclicC) {
+//    @Autowired
+    public CyclicD( CyclicC cyclicC) {
         this.cyclicC = cyclicC;
     }
 
     /**
      * 没有这个默认构造方法则会报错，因为造成了循环依赖。
      */
-    public CyclicD() {
-    }
+//    public CyclicD() {
+//    }
 }

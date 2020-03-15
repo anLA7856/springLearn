@@ -2,6 +2,7 @@ package com.anla.springbean;
 
 import com.anla.springbean.componet.DemoTestAutowired;
 import com.anla.springbean.componet.TestComponentScan;
+import com.anla.springbean.componet.mybatis.mapper.UserMapper;
 import com.anla.springbean.componet.postcontstruct.DemoPostConstruct;
 import com.anla.springbean.componet.sub.Bird;
 import com.anla.springbean.componet.sub1.Bug;
@@ -33,7 +34,6 @@ public class MainApplication {
         definition.getPropertyValues().add("dog",  new Dog());
         applicationContext.registerBeanDefinition("tomdog", definition);
 
-
         applicationContext.register(DemoDestructionAwareBeanPostProcessor.class,
                 TestComponentScan.class,
                 DogBeanPostProcessor.class,
@@ -46,6 +46,8 @@ public class MainApplication {
         // 这样方式，就可以将 BeanFactoryPostProcessor 放到  PostProcessorRegistrationDelegate 中执行
         applicationContext.addBeanFactoryPostProcessor(new DemoBeanFactoryPostProcessorConfiguration());
         applicationContext.addBeanFactoryPostProcessor(new DemoBeanDefinitionRegistryPostProcessorConfiguration());
+
+
 
         startContext();
 
@@ -70,10 +72,14 @@ public class MainApplication {
         DemoPostConstruct demoPostConstruct = applicationContext.getBean("demoPostConstruct", DemoPostConstruct.class);
         demoPostConstruct.testResource();
 
+
+        // mybatis spring
+        UserMapper userMapper = applicationContext.getBean("userMapper", UserMapper.class);
+        System.out.println(userMapper.getUser(1L));
+
+
         // shutdown application context
         applicationContext.close();
-
-
     }
 
 

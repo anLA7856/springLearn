@@ -2,6 +2,9 @@ package com.anla.springtransaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AdviceMode;
+import org.springframework.context.annotation.EnableLoadTimeWeaving;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author luoan
@@ -9,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/1/16 13:09
  **/
 @SpringBootApplication
+@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 public class TransactionApplication {
 
     public static void main(String[] args) {

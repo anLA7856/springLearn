@@ -3,6 +3,8 @@ package com.anla.springtransaction.service;
 import com.anla.springtransaction.dao.UserMapper;
 import com.anla.springtransaction.model.User;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 public class UserService {
+
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private UserMapper userMapper;
@@ -40,4 +44,16 @@ public class UserService {
         throw new RuntimeException("addUserWithOutTransaction 故意报错");
     }
 
+    public int addWithSubTransaction(){
+        return this.addWithSubSubTransaction();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public int addWithSubSubTransaction() {
+        User user = new User();
+        user.setDescription("测试 addWithSubSubTransaction");
+        int result = addUser(user);
+        log.info("addWithSubSubTransaction 修改行数为:{}", result);
+        throw new RuntimeException("addWithSubSubTransaction 故意报错");
+    }
 }

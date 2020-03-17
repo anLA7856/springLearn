@@ -18,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class UserService {
 
-    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private UserMapper userMapper;
@@ -51,9 +50,9 @@ public class UserService {
     @Transactional(rollbackFor = Exception.class)
     public int addWithSubSubTransaction() {
         User user = new User();
-        user.setDescription("测试 addWithSubSubTransaction");
+        user.setDescription("test addWithSubSubTransaction");
         int result = addUser(user);
-        log.info("addWithSubSubTransaction 修改行数为:{}", result);
-        throw new RuntimeException("addWithSubSubTransaction 故意报错");
+        log.info("addWithSubSubTransaction affect:{}", result);
+        throw new RuntimeException("addWithSubSubTransaction");
     }
 }

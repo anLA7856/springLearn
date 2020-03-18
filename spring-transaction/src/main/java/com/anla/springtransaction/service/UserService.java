@@ -55,4 +55,20 @@ public class UserService {
         log.info("addWithSubSubTransaction affect:{}", result);
         throw new RuntimeException("addWithSubSubTransaction");
     }
+
+    /**
+     * 不加注解，不会走代理
+     * @return
+     */
+    public int addWithSubNoTransaction() {
+        return this.addWithSubSubNoTransaction();
+    }
+
+    public int addWithSubSubNoTransaction() {
+        User user = new User();
+        user.setDescription("test addWithSubSubTransaction");
+        int result = addUser(user);
+        log.info("addWithSubSubTransaction affect:{}", result);
+        throw new RuntimeException("addWithSubSubTransaction");
+    }
 }

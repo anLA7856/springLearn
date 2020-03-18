@@ -50,6 +50,11 @@ public class TransactionTest {
         userService.addWithSubTransaction();
     }
 
+    @Test
+    public void addWithSubNoTransactionTest(){
+        userService.addWithSubNoTransaction();
+    }
+
     /**
      * 是否提交，主要看是否设置mysql 的 autoCommit
      * 需要手动提交，否则不会提交

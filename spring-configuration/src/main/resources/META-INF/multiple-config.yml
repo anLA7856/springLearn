@@ -1,0 +1,10 @@
+# �� Dubbo ���� Bean ��
+## dubbo.applications
+dubbo:
+  applications:
+    applicationBean:
+      name: dubbo-demo-application
+    applicationBean2:
+      name: dubbo-demo-application2
+    applicationBean3:
+      name: dubbo-demo-application3

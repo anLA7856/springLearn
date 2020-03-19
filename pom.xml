@@ -27,6 +27,7 @@
         <module>spring-transaction</module>
         <module>spring-webmvc</module>
         <module>spring-bean</module>
+        <module>spring-configuration</module>
     </modules>
     <dependencies>
         <dependency>

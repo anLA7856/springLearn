@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
  * @version 1.0
  * @date 2020/3/19 19:27
  **/
-@Import({ImportTestA.class})
+@Import({ImportTestA.class, ImportSelectorTest.class, ImportBeanDefinitionRegistrarTest.class})
 @Configuration
 public class MyMainImporter {
 }

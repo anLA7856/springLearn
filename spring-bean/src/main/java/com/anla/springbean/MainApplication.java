@@ -3,6 +3,8 @@ package com.anla.springbean;
 import com.anla.springbean.componet.DemoTestAutowired;
 import com.anla.springbean.componet.TestComponentScan;
 import com.anla.springbean.componet.mybatis.mapper.UserMapper;
+import com.anla.springbean.componet.myimport.ImportTestA;
+import com.anla.springbean.componet.myimport.ImportTestB;
 import com.anla.springbean.componet.postcontstruct.DemoPostConstruct;
 import com.anla.springbean.componet.sub.Bird;
 import com.anla.springbean.componet.sub1.Bug;
@@ -77,7 +79,14 @@ public class MainApplication {
         UserMapper userMapper = applicationContext.getBean("userMapper", UserMapper.class);
         System.out.println(userMapper.getUser(1L));
 
+        // test import
+        // 此时importTestA的名字为：com.anla.springbean.componet.myimport.ImportTestA
+        ImportTestA importTestA = applicationContext.getBean(ImportTestA.class);
+        importTestA.printName();
 
+        // test ImportSelector
+        ImportTestB importTestB = applicationContext.getBean(ImportTestB.class);
+        importTestB.printName();
         // shutdown application context
         applicationContext.close();
     }

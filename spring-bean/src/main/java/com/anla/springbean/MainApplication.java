@@ -5,6 +5,7 @@ import com.anla.springbean.componet.TestComponentScan;
 import com.anla.springbean.componet.mybatis.mapper.UserMapper;
 import com.anla.springbean.componet.myimport.ImportTestA;
 import com.anla.springbean.componet.myimport.ImportTestB;
+import com.anla.springbean.componet.myimport.ImportTestD;
 import com.anla.springbean.componet.postcontstruct.DemoPostConstruct;
 import com.anla.springbean.componet.sub.Bird;
 import com.anla.springbean.componet.sub1.Bug;
@@ -87,6 +88,11 @@ public class MainApplication {
         // test ImportSelector
         ImportTestB importTestB = applicationContext.getBean(ImportTestB.class);
         importTestB.printName();
+
+        // test ImportTestD
+        ImportTestD importTestD = applicationContext.getBean(ImportTestD.class);
+        importTestD.printName();
+
         // shutdown application context
         applicationContext.close();
     }

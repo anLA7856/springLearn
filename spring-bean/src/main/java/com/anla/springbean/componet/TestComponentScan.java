@@ -1,5 +1,6 @@
 package com.anla.springbean.componet;
 
+import com.anla.springbean.componet.myimport.MyMainImporter;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @version 1.0
  * @date 2020/2/24 13:27
  **/
+// @MyMainImporter
 @ComponentScan
 public class TestComponentScan {
 

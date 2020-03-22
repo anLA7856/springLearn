@@ -1,14 +1,10 @@
 package com.anla.springbean.componet.myimport;
 
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.DeferredImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 实现了group的 deferredImportSelector方法
@@ -33,20 +29,20 @@ public class DeferredImportSelectorWithGroupTest implements DeferredImportSelect
     private static class DeferredImportSelectorWithGroupGroupTest
             implements DeferredImportSelector.Group {
 
-        private static List<String> imports;
+        private static List<Entry> imports;
 
         @Override
         public void process(AnnotationMetadata metadata, DeferredImportSelector selector) {
             imports = new ArrayList<>();
-            imports.add("com.anla.springbean.componet.myimport.ImportTestE");
-            imports.add("com.anla.springbean.componet.myimport.ImportTestF");
+            Entry entry = new Entry(metadata, "com.anla.springbean.componet.myimport.ImportTestE");
+            imports.add(entry);
+            Entry entry1 = new Entry(metadata, "com.anla.springbean.componet.myimport.ImportTestF");
+            imports.add(entry1);
         }
 
         @Override
         public Iterable<Entry> selectImports() {
-            return imports.stream()
-                    .map((importClassName) -> new Entry(this.entries.get(importClassName), importClassName))
-                    .collect(Collectors.toList());
+            return imports;
         }
     }
 }

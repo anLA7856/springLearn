@@ -15,7 +15,7 @@ import java.util.List;
 public class DeferredImportSelectorWithGroupTest implements DeferredImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
-        return new String[]{"com.anla.springbean.componet.myimport.ImportTestD"};
+        return new String[]{"com.anla.springbean.componet.myimport.ImportTestG"};
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.anla.springbean.componet;
 
 import com.anla.springbean.componet.lookup.DemoTrueLookUpConfiguration;
+import com.anla.springbean.componet.myimport.MyMainImporter;
 import com.anla.springbean.componet.primary.BasePeople;
 import com.anla.springbean.componet.sub.Bird;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.text.DateFormat;
  * @date 20-3-1 下午6:18
  * @description
  */
+@MyMainImporter
 @Component
 public class DemoTestAutowired {
 

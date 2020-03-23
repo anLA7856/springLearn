@@ -13,6 +13,6 @@ import org.springframework.context.annotation.Import;
         ImportBeanDefinitionRegistrarTest.class,
         DeferredImportSelectorTest.class,
         DeferredImportSelectorWithGroupTest.class})
-@Configuration
-public class MyMainImporter {
+//@Configuration
+public @interface MyMainImporter {
 }

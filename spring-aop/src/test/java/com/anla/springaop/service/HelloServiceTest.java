@@ -1,4 +1,4 @@
-package com.anla.springaop.test.service;
+package com.anla.springaop.service;
 
 import com.anla.springaop.AopApplication;
 import com.anla.springaop.service.HelloService;

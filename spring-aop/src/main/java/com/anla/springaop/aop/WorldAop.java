@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 @Aspect
-@Order(0)
-public class HelloAop  implements Ordered {
+@Order(1)
+public class WorldAop implements Ordered {
 
     /**
      * 后面是指service下面所有方法，注意有2个星。
@@ -30,12 +30,12 @@ public class HelloAop  implements Ordered {
     @Before("returnPointcut()")
     public void doBefore(JoinPoint joinPoint) {
         String apiName = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
-        System.out.println("========== 调用方法HelloAop:{} start ==========, " + apiName);
+        System.out.println("========== 调用方法WorldAop:{} start ==========, " + apiName);
 
         for (Object arg : joinPoint.getArgs()) {
             System.out.println("arg:," + arg);
         }
-        System.out.println("========== 调用方法HelloAop:{} end ==========, " + apiName);
+        System.out.println("========== 调用方法WorldAop:{} end ==========, " + apiName);
     }
 
     /**

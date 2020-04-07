@@ -28,6 +28,7 @@
         <module>spring-webmvc</module>
         <module>spring-bean</module>
         <module>spring-configuration</module>
+        <module>spring-annotation</module>
     </modules>
     <dependencies>
         <dependency>

@@ -29,6 +29,7 @@
         <module>spring-bean</module>
         <module>spring-configuration</module>
         <module>spring-annotation</module>
+        <module>spring-websocket-netty</module>
     </modules>
     <dependencies>
         <dependency>

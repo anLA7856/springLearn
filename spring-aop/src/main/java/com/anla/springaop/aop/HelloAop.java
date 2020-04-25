@@ -2,10 +2,7 @@ package com.anla.springaop.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -36,6 +33,21 @@ public class HelloAop  implements Ordered {
             System.out.println("arg:," + arg);
         }
         System.out.println("========== 调用方法HelloAop:{} end ==========, " + apiName);
+    }
+
+    @After("returnPointcut()")
+    public void doAfter(JoinPoint joinPoint) {
+        System.out.println("========== doAfter ==========, ");
+    }
+
+    @AfterReturning(value = "returnPointcut()", returning = "result")
+    public void doAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("========== doAfterReturning ==========, " + result);
+    }
+
+    @AfterThrowing(value = "returnPointcut()", throwing = "ex")
+    public void doAfterThrowing(JoinPoint joinPoint, Exception ex) {
+        System.out.println("========== doAfterThrowing ==========, " + ex);
     }
 
     /**

@@ -23,8 +23,15 @@ public class HelloServiceTest {
     @Autowired
     HelloService testService;
 
+    @Autowired
+    WorldAPI worldService;
+
     @Test
     public void test(){
         log.info(testService.hello("spring aop"));
+        log.info("equals:{}",testService.equals("!23"));
+        log.info("equals:{}",testService.hashCode());
+        log.info("equals:{}",testService.toString());
+        log.info(worldService.world("world aop"));
     }
 }

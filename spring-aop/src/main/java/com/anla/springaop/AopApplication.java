@@ -30,6 +30,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * 3. ProxyConfig属性分析
  * https://blog.csdn.net/wt_better/article/details/84775621?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-11&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-11
+ *
+ * 4. advisor 顺序
+ * Sort the rest by AspectJ precedence. If two pieces of advice have
+ * come from the same aspect they will have the same order.
+ * Advice from the same aspect is then further ordered according to the
+ * following rules:
+ * <ul>
+ * <li>if either of the pair is after advice, then the advice declared
+ * last gets highest precedence (runs last)</li>
+ * <li>otherwise the advice declared first gets highest precedence (runs first)</li>
+ * </ul>
+ * <p><b>Important:</b> Advisors are sorted in precedence order, from highest
+ * precedence to lowest. "On the way in" to a join point, the highest precedence
+ * advisor should run first. "On the way out" of a join point, the highest precedence
+ * advisor should run last.
+ *
  **/
 @SpringBootApplication
 public class AopApplication {

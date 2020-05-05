@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.anla.springtransactionaspectJ.springspi.SpringSpiBeanTest

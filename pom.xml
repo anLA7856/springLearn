@@ -24,7 +24,7 @@
 
     <modules>
         <module>spring-aop</module>
-        <module>spring-transaction</module>
+        <module>spring-transaction-aspecJ</module>
         <module>spring-webmvc</module>
         <module>spring-bean</module>
         <module>spring-configuration</module>
@@ -32,6 +32,7 @@
         <module>spring-websocket-netty</module>
         <module>spring-loadtimeweaver</module>
         <module>java-agent</module>
+        <module>spring-transaction-proxy</module>
     </modules>
     <dependencies>
         <dependency>

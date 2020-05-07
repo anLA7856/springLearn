@@ -46,6 +46,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * advisor should run first. "On the way out" of a join point, the highest precedence
  * advisor should run last.
  *
+ *
+ *  5. cglib 也是使用 ProxyFactory  管理advisor。ProxyFactory  用法：https://blog.csdn.net/u012834750/article/details/71773887
+ *  6. advisor 管理 advice 以及 pointcut
  **/
 @SpringBootApplication
 public class AopApplication {

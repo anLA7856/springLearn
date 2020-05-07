@@ -1,12 +1,16 @@
 package com.anla.springaop.service;
 
 import com.anla.springaop.AopApplication;
-import com.anla.springaop.service.HelloService;
+import com.anla.springaop.advisor.IOther;
+import com.anla.springaop.advisor.OtherService;
+import com.anla.springaop.advisor.SomeService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -26,6 +30,15 @@ public class HelloServiceTest {
     @Autowired
     WorldAPI worldService;
 
+    @Autowired
+    SomeService someService;
+
+    @Autowired
+    OtherService otherService;
+
+    @Autowired
+    ApplicationContext applicationContext;
+
     @Test
     public void test(){
         log.info(testService.hello("spring aop"));
@@ -34,4 +47,19 @@ public class HelloServiceTest {
         log.info("equals:{}",testService.toString());
         log.info(worldService.world("world aop"));
     }
+
+    /**
+     * 强转后，是不是有了，牛逼
+     */
+    @Test
+    public void doSomeTest(){
+        someService.doSome();
+        ((IOther)someService).doOther();
+    }
+
+    @Test
+    public void doOtherTest(){
+        otherService.doOther();
+    }
+
 }

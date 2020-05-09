@@ -1,6 +1,7 @@
 package com.anla.springwebmvc.controller;
 
 import com.anla.springwebmvc.config.CommonConfiguration;
+import com.anla.springwebmvc.config.TestConfig;
 import com.anla.springwebmvc.model.Hello;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,13 @@ public class HelloRestController {
     @Autowired
     private CommonConfiguration commonConfiguration;
 
+    @Autowired
+    private TestConfig testConfig;
+
     @GetMapping
     public Hello hello(){
-        log.info(commonConfiguration.getMsg());
+        log.info("@Value 形式 :{}" + commonConfiguration.getMsg());
+        log.info("ConfigurationProperties 形式 :{}" + testConfig.getMsg());
         return new Hello("123123", 1);
     }
 

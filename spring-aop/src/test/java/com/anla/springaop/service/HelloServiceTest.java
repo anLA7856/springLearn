@@ -7,6 +7,7 @@ import com.anla.springaop.advisor.SomeService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -62,4 +63,15 @@ public class HelloServiceTest {
         otherService.doOther();
     }
 
+    @Test
+    public void doProxyFactory(){
+//        ProxyFactory proxyFactory=new ProxyFactory();
+//        proxyFactory.setTarget(new TestMethodInterceptor());
+//        proxyFactory.addAdvice(new adviseMethodInterceptor());
+//
+//        Object proxy = proxyFactory.getProxy();
+//        TestMethodInterceptor methodInterceptor = (TestMethodInterceptor) proxy;
+//
+//        methodInterceptor.doSomeThing("通过代理工厂设置代理对象，拦截代理方法");
+    }
 }

@@ -18,6 +18,9 @@ public class CommonConfiguration implements DisposableBean {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Value("${anla.msg}")
+    private String msg;
+
     @Override
     public void destroy() throws Exception {
         if (applicationName == null){
@@ -32,5 +35,13 @@ public class CommonConfiguration implements DisposableBean {
      * 清理
      */
     private void doDestroy() {
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

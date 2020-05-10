@@ -30,7 +30,8 @@ public class UserService {
         user.setDescription("测试 addUserWithTransaction");
         int result = addUser(user);
         log.info("addUserWithTransaction 修改行数为:{}", result);
-        throw new RuntimeException("addUserWithTransaction 故意报错");
+        // throw new RuntimeException("addUserWithTransaction 故意报错");
+        return result;
     }
 
     public int addUserWithOutTransaction(){

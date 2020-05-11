@@ -24,7 +24,7 @@
 
     <modules>
         <module>spring-aop</module>
-        <module>spring-transaction-aspecJ</module>
+        <module>spring-transaction-aspectJ</module>
         <module>spring-webmvc</module>
         <module>spring-bean</module>
         <module>spring-configuration</module>

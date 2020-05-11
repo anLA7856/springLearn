@@ -3,7 +3,8 @@ package com.anla.springtransactionproxy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
+/**1. 实践 TransactionSynchronization
+ * 2.
  * @author luoan
  * @version 1.0
  * @date 2020/1/16 13:09

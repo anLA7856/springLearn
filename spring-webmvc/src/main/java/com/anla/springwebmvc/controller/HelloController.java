@@ -1,5 +1,6 @@
 package com.anla.springwebmvc.controller;
 
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2020/1/16 16:48
  **/
 @Controller
+@RefreshScope
 public class HelloController {
 
     @GetMapping("index")

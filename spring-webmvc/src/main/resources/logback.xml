@@ -5,38 +5,38 @@
     <logger name="org.springframework.web" level="INFO"/>
 
     <property name="logPath" value="/data/weblog/anla"/>
-    <property name="log.moduleName" value="spring-aop-test" />
+    <property name="log.moduleName" value="spring-webmvc-test" />
     <property name="CONSOLE_LOG_PATTERN" value="%d{HH:mm:ss} [%thread][%X{traceId}] %-5level %logger - %msg%n"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-    <appender name="FILE-INFO-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/${log.moduleName}/${log.moduleName}-info.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-info.log.%d{yyyy-MM-dd}</fileNamePattern>
-        </rollingPolicy>
-        <encoder>
-            <charset>utf-8</charset>
-            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>
-        </encoder>
-    </appender>
+<!--    <appender name="FILE-INFO-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${logPath}/${log.moduleName}/${log.moduleName}-info.log</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-info.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <charset>utf-8</charset>-->
+<!--            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
-    <appender name="FILE-ERROR-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logPath}/${log.moduleName}/${log.moduleName}-error.log</file>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>ERROR</level>
-        </filter>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-error.log.%d{yyyy-MM-dd}</fileNamePattern>
-        </rollingPolicy>
-        <encoder>
-            <charset>utf-8</charset>
-            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>
-        </encoder>
-    </appender>
+<!--    <appender name="FILE-ERROR-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${logPath}/${log.moduleName}/${log.moduleName}-error.log</file>-->
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>ERROR</level>-->
+<!--        </filter>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${logPath}/${log.moduleName}/${log.moduleName}-error.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <charset>utf-8</charset>-->
+<!--            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]|%-5p|%X{traceId}|%t|%C{36}|%L|%M|%m%n</Pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
 
     <root level="debug">
-        <appender-ref ref="FILE-INFO-OUT"/>
-        <appender-ref ref="FILE-ERROR-OUT"/>
+<!--        <appender-ref ref="FILE-INFO-OUT"/>-->
+<!--        <appender-ref ref="FILE-ERROR-OUT"/>-->
         <appender-ref ref="CONSOLE"/>
     </root>
 

@@ -5,12 +5,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import com.anla.springtransactionproxy.TransactionProxyApplication;
 import com.anla.springtransactionproxy.dao.UserMapper;
 import com.anla.springtransactionproxy.model.User;
 import com.anla.springtransactionproxy.service.UserService;
+
+import javax.annotation.Resource;
 
 /**
  * @author luoan
@@ -26,15 +29,18 @@ public class TransactionTest {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
+    @Resource
     private UserService userService;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     /**
      * 会回滚
      */
     @Test
     public void addUserWithTransactionTest(){
-        userService.addUserWithTransaction();
+        int result = userService.addUserWithTransaction();
     }
 
     /**
@@ -62,7 +68,22 @@ public class TransactionTest {
     @Test
     public void autoSubmitTest(){
         User user = new User();
-        user.setDescription("autoSubmitTest");
+        user.setDescription("addUserTest");
         userMapper.insertSelective(user);
     }
+
+
+    @Test
+    public void addUserWithTransactionManagerCallbackTest(){
+        userService.addUserWithTransactionManagerCallback();
+    }
+
+    @Test
+    public void addUserTest(){
+        User user = new User();
+        user.setDescription("addUserTest");
+        userService.addUser(user);
+    }
+
+
 }

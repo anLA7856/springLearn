@@ -5,6 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.support.TransactionSynchronizationAdapter;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import javax.sql.DataSource;
 
@@ -29,6 +31,16 @@ public class CommonConfiguration {
      */
     @Bean
     public DataSourceTransactionManager customerTransactionManager() {
+
+        // 不能再这里加，会报错。TransactionSynchronizationManager： Transaction synchronization is not active
+        // 因为这个过程还没有线程
+
+//        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
+//            @Override
+//            public void afterCommit() {
+//                System.out.println("I have Commit");
+//            }
+//        });
         return new DataSourceTransactionManager(datasourceCustomer());
     }
 }

@@ -1,9 +1,6 @@
 package com.anla.springwebmvc.servlet;
 
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
@@ -11,7 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @version 1.0
  * @date 2020/5/12 15:51
  **/
-public class Deadlock
+public class Deadlock2
 {
     public static void main(String arg[]) throws InterruptedException {
         ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
@@ -38,7 +35,7 @@ public class Deadlock
             }
         });
 
-        Thread threadWrite = new Thread(new Runnable() {
+/*        Thread threadWrite = new Thread(new Runnable() {
             @Override
             public void run() {
                 Lock writeLock = lock.writeLock();
@@ -49,7 +46,7 @@ public class Deadlock
                     writeLock.unlock();
                 }
             }
-        });
+        });*/
 
         Thread threadRead = new Thread(new Runnable() {
             @Override
@@ -66,8 +63,8 @@ public class Deadlock
 
         threadPark.start();
         Thread.sleep(2000);
-        threadWrite.start();
-        Thread.sleep(2000);
+//        threadWrite.start();
+//        Thread.sleep(2000);
         threadRead.start();
 
     }

@@ -1,6 +1,9 @@
 package com.anla.springwebmvc.servlet;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
@@ -8,12 +11,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @version 1.0
  * @date 2020/5/12 15:51
  **/
-public class Deadlock2
+public class ReentrantReadWriteLock1
 {
     public static void main(String arg[]) throws InterruptedException {
-        ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+        // fair和unfair 都不符合
+        ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
         Thread threadPark = new Thread(() -> {
-
             Lock readLock = lock.readLock();
             readLock.lock();
             try {
@@ -29,6 +32,15 @@ public class Deadlock2
                 readLock.unlock();
             }
         });
+        Thread threadWrite = new Thread(() -> {
+            Lock writeLock = lock.writeLock();
+            writeLock.lock();
+            try {
+                System.out.println("I have the write lock!!!!");
+            }finally {
+                writeLock.unlock();
+            }
+        });
         Thread threadRead = new Thread(() -> {
             Lock readLock = lock.readLock();
             readLock.lock();
@@ -39,6 +51,8 @@ public class Deadlock2
             }
         });
         threadPark.start();
+        Thread.sleep(2000);
+        threadWrite.start();
         Thread.sleep(2000);
         threadRead.start();
     }

@@ -23,7 +23,8 @@ public class MyFilter implements Filter {
         String requestURI = req.getRequestURI();
         System.out.println("--------------------->过滤器：请求地址"+requestURI);
         if(!requestURI.contains("info")){
-            req.getRequestDispatcher("/failed").forward(request, response);
+            chain.doFilter(request, response);
+            // req.getRequestDispatcher("/failed").forward(request, response);
         }else{
             chain.doFilter(request, response);
         }

@@ -1,5 +1,9 @@
 package com.anla.springwebmvc.controller;
 
+import com.anla.springwebmvc.service.ApplicationScopeService;
+import com.anla.springwebmvc.service.RequestScopeService;
+import com.anla.springwebmvc.service.SessionScopeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +19,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RefreshScope
 public class HelloController {
 
+    @Autowired
+    private RequestScopeService requestScopeService;
+    @Autowired
+    private SessionScopeService sessionScopeService;
+    @Autowired
+    private ApplicationScopeService applicationScopeService;
+
     @GetMapping("index")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
+        requestScopeService.helloScope();
+        sessionScopeService.helloScope();
+        applicationScopeService.helloScope();
         return "index";
     }
 }

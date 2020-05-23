@@ -1,2 +1,7 @@
 anla:
   msg: "我是local"
+
+spring:
+  mvc:
+    view:
+      suffix: html

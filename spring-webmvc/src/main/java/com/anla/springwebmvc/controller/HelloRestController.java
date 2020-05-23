@@ -24,11 +24,22 @@ public class HelloRestController {
     @Autowired
     private TestConfig testConfig;
 
-    @GetMapping
+    @GetMapping("/hello")
     public Hello hello(){
         log.info("@Value 形式 :{}" + commonConfiguration.getMsg());
         log.info("ConfigurationProperties 形式 :{}" + testConfig.getMsg());
         return new Hello("123123", 1);
+    }
+
+
+    @GetMapping("/hello1")
+    public Object hello1(){
+        return "12323,1";
+    }
+
+    @GetMapping("/hello2")
+    public Integer hello2(){
+        return 1;
     }
 
 }

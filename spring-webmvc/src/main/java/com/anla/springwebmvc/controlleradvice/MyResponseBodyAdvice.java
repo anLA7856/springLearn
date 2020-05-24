@@ -1,4 +1,4 @@
-package com.anla.springwebmvc.config;
+package com.anla.springwebmvc.controlleradvice;
 
 import com.anla.springwebmvc.model.Hello;
 import org.springframework.context.annotation.Configuration;

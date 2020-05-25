@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 海川就是用这个
+ *
+ * 这个interceptor 最终，会被包装进 HandlerExecutionChain，即获取handler时候包装。
  * @author luoan
  * @version 1.0
  * @date 2020/5/23 13:05

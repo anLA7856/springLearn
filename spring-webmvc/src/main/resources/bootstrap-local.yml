@@ -5,3 +5,5 @@ spring:
   mvc:
     view:
       suffix: html
+    async:
+      request-timeout:

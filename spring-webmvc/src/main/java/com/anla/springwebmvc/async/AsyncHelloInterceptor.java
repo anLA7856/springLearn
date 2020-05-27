@@ -1,5 +1,6 @@
 package com.anla.springwebmvc.async;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0
  * @date 2020/5/26 17:26
  **/
+@Component
 public class AsyncHelloInterceptor implements AsyncHandlerInterceptor {
     /**
      * 这是Spring3.2提供的方法，专门拦截异步请求的方式

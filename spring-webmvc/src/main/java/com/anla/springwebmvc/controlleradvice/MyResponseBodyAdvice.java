@@ -29,10 +29,7 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice {
         if(body instanceof Hello){
             System.out.println("hello? beforeBodyWrite");
             return body;
-        } if (body instanceof String){
-            String[] str = ((String) body).split(",");
-            return new Hello(str[0], Integer.parseInt(str[1]));
-        }else{
+        } else{
             // 处理字符数组
             return body;
         }

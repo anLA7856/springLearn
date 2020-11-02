@@ -33,6 +33,7 @@
         <module>spring-loadtimeweaver</module>
         <module>java-agent</module>
         <module>spring-transaction-proxy</module>
+      <module>spring-property-source</module>
     </modules>
     <dependencies>
         <dependency>

@@ -35,6 +35,7 @@
         <module>spring-transaction-proxy</module>
         <module>spring-webflux-hello</module>
         <module>spring-property-source</module>
+      <module>spring-apollo</module>
     </modules>
     <dependencies>
         <dependency>

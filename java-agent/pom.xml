@@ -23,6 +23,9 @@
                             <Project-name>${project.name}</Project-name>
                             <Project-version>${project.version}</Project-version>
                             <Premain-Class>com.anla.agent.HelloAgent</Premain-Class>
+                            <Agent-Class>com.anla.agent.HelloAgent</Agent-Class>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
                         </manifestEntries>
                     </archive>
                     <skip>true</skip>
@@ -45,6 +48,14 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.21.0-GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.olivergondza</groupId>
+            <artifactId>maven-jdk-tools-wrapper</artifactId>
+            <version>0.1</version>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>

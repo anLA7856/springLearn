@@ -23,8 +23,12 @@ public class HelloController {
     @Value("${spring.datasource.password}")
     private String password;
 
+
     @Autowired
     private MqProperty mqProperty;
+
+    @Autowired
+    private TempNamespace tempNamespace;
 
     @GetMapping("/hello")
     public Integer hello(){
@@ -34,6 +38,7 @@ public class HelloController {
         System.out.println("value is :"+value);
         System.out.println("password is :"+password);
         System.out.println("mqProperty is :" + mqProperty);
+        System.out.println("tempNamespace is :" + tempNamespace);
         return 0;
     }
 

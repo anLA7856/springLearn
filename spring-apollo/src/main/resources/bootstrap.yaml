@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: marketing-service
+  profiles:
+    active: local2test
+  cloud:
+    apollo:
+      config:
+        server-addr: *
+        namespaces:
+          -
+            name: application
+            refreshable: true
+          -
+            name: pre
+            refreshable: true
+      refreshable: true

@@ -1,13 +1,33 @@
-app:
-  id: marketing-service
-  env: dev
+#app:
+#  id: marketing-service
+#  env: dev
+#
+#apollo:
+#  meta:
+#    dev: *
+#  autoUpdateInjectedSpringProperties: true
+#  bootstrap:
+#    namespaces: application
+#    eagerLoad:
+#      enabled: true
+#    enabled: true
 
-apollo:
-  meta:
-    dev: http://10.0.217.70:8080,http://10.0.216.217:8080/
-  autoUpdateInjectedSpringProperties: true
-  bootstrap:
-    namespaces: application
-    eagerLoad:
-      enabled: true
-    enabled: true
+
+
+#spring:
+#  application:
+#    name: marketing-service
+#  profiles:
+#    active: dev
+#  cloud:
+#    apollo:
+#      config:
+#        server-addr: *
+#        namespaces:
+#          -
+#            name: application
+#            refreshable: true
+#          -
+#            name: pre
+#            refreshable: true
+#      refreshable: true
